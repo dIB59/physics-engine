@@ -42,7 +42,7 @@ git clone https://github.com/dIB59/physics-engine.git
 # Navigate to the directory
 cd physics-engine
 
-# To run the simulation (assuming a main.py entry point)
+# To run the simulation
 python main.py
 ```
 
