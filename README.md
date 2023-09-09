@@ -53,5 +53,6 @@ Feel free to fork this repository and submit pull requests. Any contributions, f
 ## References and Resources
 
 - Barnes, J., & Hut, P. (1986). A hierarchical O(N log N) force-calculation algorithm. Nature, 324(6096), 446-449.
+- [Read this rather than the paper](https://anaroxanapop.github.io/behalf/#Nbody)
 - [A good tutorial to get started on QuadTrees](https://katherinepully.com/quadtree-python/)
 
