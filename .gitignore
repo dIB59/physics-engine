@@ -1,2 +1,3 @@
 particle/__pycache__/
-particle/test/__pycache__/
+test/__pycache__/
+.idea
