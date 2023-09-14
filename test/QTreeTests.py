@@ -1,6 +1,14 @@
+import os
+import sys
 import unittest
 
+# Determine the path to your project directory dynamically
+project_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(project_dir)
+sys.path.append(parent_dir)
+
 from particle.QTree import QTree, _find_children
+
 
 
 class QTreeTests(unittest.TestCase):
@@ -11,7 +19,7 @@ class QTreeTests(unittest.TestCase):
 
     def test_add_point(self):
         qt = QTree(4, 50)
-        qt.add_point(5,5)
+        qt.add_point(5, 5)
         self.assertEqual(len(qt.get_points()), 51, f"Expected 51 points but got {len(qt.get_points())} points.")
 
     def test_subdivide(self):
