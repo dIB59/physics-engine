@@ -26,12 +26,10 @@ class QTree:
         plt.title("Quadtree")
         ax = fig.add_subplot(111)
         c = _find_children(self.root)
-        print("Number of segments: %d" % len(c))
 
         areas = set()
         for el in c:
             areas.add(el.width * el.height)
-        print("Minimum segment area: %.3f units" % min(areas))
 
         for n in c:
             ax.add_patch(patches.Rectangle((n.x0, n.y0), n.width, n.height, fill=False))
