@@ -1,7 +1,7 @@
 import random
 
 from particle.Node import Node
-from particle.Particle import Particle
+from particle.ParticleBuilder import ParticleBuilder
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
@@ -9,11 +9,11 @@ import matplotlib.patches as patches
 class QTree:
     def __init__(self, k, n):
         self.threshold = k
-        self.points = [Particle(random.uniform(0, 10), random.uniform(0, 10)) for x in range(n)]
+        self.points = [ParticleBuilder(random.uniform(0, 10), random.uniform(0, 10)) for x in range(n)]
         self.root = Node(0, 0, 10, 10, self.points)
 
     def add_point(self, x, y):
-        self.points.append(Particle(x, y))
+        self.points.append(ParticleBuilder(x, y))
 
     def get_points(self):
         return self.points
