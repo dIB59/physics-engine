@@ -1,4 +1,2 @@
-particle/__pycache__/
-test/__pycache__/
 .idea
-render/__pycache__/
+*/__pycache__/

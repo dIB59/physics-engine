@@ -1,14 +1,14 @@
 import pygame
-from render import DrawParticle
-from particle import QTree
+from render.DrawParticle import draw_all_particles_in_qtree
+from util.QTree import QTree
 
 
 def render(qt: QTree):
 
     pygame.init()
 
-    width = QTree.QTree.get_width(qt)
-    height = QTree.QTree.get_height(qt)
+    width = QTree.get_width(qt)
+    height = QTree.get_height(qt)
 
     win = pygame.display.set_mode((width, height))
     pygame.display.set_caption('A particle simulation')
@@ -25,7 +25,7 @@ def render(qt: QTree):
             if event.type == pygame.QUIT:
                 run = False
 
-        DrawParticle.draw_all_in_qtree(qt, win)
+        draw_all_particles_in_qtree(qt, win)
 
         pygame.display.update()
 

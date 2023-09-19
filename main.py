@@ -1,5 +1,5 @@
 import render.PygameRender
-from particle.QTree import QTree
+from util.QTree import QTree
 
 if __name__ == '__main__':
     # Create a QuadTree with a threshold of 4 and 50 initial points.
