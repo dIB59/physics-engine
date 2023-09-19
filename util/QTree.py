@@ -1,6 +1,6 @@
 import random
 
-from particle.Node import Node
+from util.Node import Node
 from particle.ParticleBuilder import ParticleBuilder
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
@@ -31,7 +31,7 @@ class QTree:
         fig = plt.figure(figsize=(8, 8))
         plt.title("Quadtree")
         ax = fig.add_subplot(111)
-        c = _find_children(self.root)
+        c = find_children(self.root)
 
         areas = set()
         for el in c:
@@ -44,6 +44,16 @@ class QTree:
         plt.plot(x, y, 'ro')
         plt.show()
         return
+
+
+def find_children(node):
+    if not node.children:
+        return [node]
+    else:
+        children = []
+        for child in node.children:
+            children += (find_children(child))
+    return children
 
 
 def _recursive_subdivide(node, k):
@@ -78,13 +88,3 @@ def _contains(x, y, w, h, points):
         if x <= point.x <= x + w and y <= point.y <= y + h:
             pts.append(point)
     return pts
-
-
-def _find_children(node):
-    if not node.children:
-        return [node]
-    else:
-        children = []
-        for child in node.children:
-            children += (_find_children(child))
-    return children
