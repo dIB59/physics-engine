@@ -1,12 +1,16 @@
 import pygame
+from render import DrawParticle
+from particle import QTree
 
 
-def render():
+def render(qt: QTree):
+
     pygame.init()
 
-    width, height = 1000, 1000
+    width = QTree.QTree.get_width(qt)
+    height = QTree.QTree.get_height(qt)
 
-    win = pygame.display.set_mode((width, height), pygame.RESIZABLE)
+    win = pygame.display.set_mode((width, height))
     pygame.display.set_caption('A particle simulation')
 
     run = True
@@ -21,7 +25,7 @@ def render():
             if event.type == pygame.QUIT:
                 run = False
 
-        particle.draw(win)
+        DrawParticle.draw_all_in_qtree(qt, win)
 
         pygame.display.update()
 
