@@ -1,3 +1,6 @@
+from particle.Particle import Particle
+
+
 class ParticleBuilder:
     def __init__(self, x=0, y=0, mass=1, vel_x=0.0, vel_y=0.0):
         self.x = x
@@ -27,6 +30,4 @@ class ParticleBuilder:
         return self
 
     def build(self):
-        return ParticleBuilder(self.x, self.y, self.mass, self.vel_x, self.vel_y)
-
-
+        return Particle(self.x, self.y, self.mass, self.vel_x, self.vel_y)
