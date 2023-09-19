@@ -12,6 +12,12 @@ class QTree:
         self.points = [ParticleBuilder(random.uniform(0, 800), random.uniform(0, 800)).build() for x in range(n)]
         self.root = Node(0, 0, width, height, self.points)
 
+    def get_width(self):
+        return self.root.width
+
+    def get_height(self):
+        return self.root.height
+
     def add_point(self, x, y):
         self.points.append(ParticleBuilder(x, y))
 
