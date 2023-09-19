@@ -7,10 +7,16 @@ import matplotlib.patches as patches
 
 
 class QTree:
-    def __init__(self, k, n):
+    def __init__(self, k, n, width: int, height: int):
         self.threshold = k
-        self.points = [ParticleBuilder(random.uniform(0, 10), random.uniform(0, 10)) for x in range(n)]
-        self.root = Node(0, 0, 10, 10, self.points)
+        self.points = [ParticleBuilder(random.uniform(0, 800), random.uniform(0, 800)).build() for x in range(n)]
+        self.root = Node(0, 0, width, height, self.points)
+
+    def get_width(self):
+        return self.root.width
+
+    def get_height(self):
+        return self.root.height
 
     def add_point(self, x, y):
         self.points.append(ParticleBuilder(x, y))
@@ -22,7 +28,7 @@ class QTree:
         _recursive_subdivide(self.root, self.threshold)
 
     def graph(self):
-        fig = plt.figure(figsize=(12, 8))
+        fig = plt.figure(figsize=(8, 8))
         plt.title("Quadtree")
         ax = fig.add_subplot(111)
         c = _find_children(self.root)
