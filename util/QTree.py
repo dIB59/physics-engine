@@ -18,7 +18,7 @@ class QTree:
     def get_height(self):
         return self.root.height
 
-    def add_point(self, x, y):
+    def insert_point(self, x, y):
         self.points.append(ParticleBuilder(x, y))
 
     def get_points(self):
@@ -27,23 +27,28 @@ class QTree:
     def subdivide(self):
         _recursive_subdivide(self.root, self.threshold)
 
-    def graph(self):
-        fig = plt.figure(figsize=(8, 8))
-        plt.title("Quadtree")
-        ax = fig.add_subplot(111)
+    def create_graph(self):
+        fig, ax = plt.subplots(figsize=(8, 8))
+
+        ax.set_title("Quadtree")
+
         c = find_children(self.root)
 
-        areas = set()
-        for el in c:
-            areas.add(el.width * el.height)
-
+        # Plot the rectangles representing Quadtree nodes
         for n in c:
-            ax.add_patch(patches.Rectangle((n.x0, n.y0), n.width, n.height, fill=False))
+            ax.add_patch(patches.Rectangle((n.x0, n.y0), n.width, n.height, fill=False, edgecolor='b'))
+
         x = [point.x for point in self.points]
         y = [point.y for point in self.points]
-        plt.plot(x, y, 'ro')
+
+        # Flip the y-axis so that it looks like the pygame render
+        ax.invert_yaxis()
+
+        plt.scatter(x, y, color='red', marker='o', label='Points')
+        ax.set_xlabel('X Coordinate')
+        ax.set_ylabel('Y Coordinate')
+        ax.legend()
         plt.show()
-        return
 
 
 def find_children(node):
