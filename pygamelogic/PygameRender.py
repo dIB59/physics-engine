@@ -1,10 +1,10 @@
 import pygame
-from render.DrawParticle import draw_all_particles_in_qtree
+
+from pygamelogic.DrawParticle import draw_all_particles_in_qtree
 from util.QTree import QTree
 
 
 def render(qt: QTree):
-
     pygame.init()
 
     width = QTree.get_width(qt)
@@ -24,6 +24,11 @@ def render(qt: QTree):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                # Create a particle at the mouse click position
+                x, y = pygame.mouse.get_pos()
+                qt.insert_point(x, y)
+                qt.subdivide()
 
         draw_all_particles_in_qtree(qt, win)
 
