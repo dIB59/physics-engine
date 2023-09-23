@@ -1,6 +1,6 @@
 import pygame
 
-from pygamelogic.DrawParticle import draw_all_particles_in_qtree
+from custompygameclasses.DrawParticle import draw_all_particles_in_qtree
 from util.QTree import QTree
 
 

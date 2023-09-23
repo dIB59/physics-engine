@@ -1,4 +1,4 @@
-from pygamelogic.PygameRender import render
+from custompygameclasses.PygameRender import render
 from util.QTree import QTree
 
 if __name__ == '__main__':
