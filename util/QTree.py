@@ -28,37 +28,26 @@ class QTree:
         _recursive_subdivide(self.root, self.threshold)
 
     def create_graph(self):
-        # Create a new figure with a specified size
         fig, ax = plt.subplots(figsize=(8, 8))
 
-        # Set the title for the plot
         ax.set_title("Quadtree")
 
-        # Find the children nodes
         c = find_children(self.root)
-
-        # Calculate areas for the rectangles (optional)
-        areas = [el.width * el.height for el in c]
 
         # Plot the rectangles representing Quadtree nodes
         for n in c:
             ax.add_patch(patches.Rectangle((n.x0, n.y0), n.width, n.height, fill=False, edgecolor='b'))
 
-        # Extract x and y coordinates from the points
         x = [point.x for point in self.points]
         y = [point.y for point in self.points]
 
-        # Plot the points as red circles ('ro')
-        plt.scatter(x, y, color='red', marker='o', label='Points')
+        # Flip the y-axis so that it looks like the pygame render
+        ax.invert_yaxis()
 
-        # Set labels for x and y axes
+        plt.scatter(x, y, color='red', marker='o', label='Points')
         ax.set_xlabel('X Coordinate')
         ax.set_ylabel('Y Coordinate')
-
-        # Show a legend for the plot
         ax.legend()
-
-        # Display the plot
         plt.show()
 
 
