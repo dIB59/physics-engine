@@ -18,7 +18,7 @@ class QTreeTests(unittest.TestCase):
 
     def test_add_point(self):
         qt = QTree(4, 50, 800, 800)
-        qt.add_point(5, 5)
+        qt.insert_point(5, 5)
         self.assertEqual(len(qt.get_points()), 51, f"Expected 51 points but got {len(qt.get_points())} points.")
 
     def test_subdivide(self):

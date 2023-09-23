@@ -18,7 +18,7 @@ class QTree:
     def get_height(self):
         return self.root.height
 
-    def add_point(self, x, y):
+    def insert_point(self, x, y):
         self.points.append(ParticleBuilder(x, y))
 
     def get_points(self):
