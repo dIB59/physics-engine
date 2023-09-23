@@ -24,7 +24,7 @@ class QTreeTests(unittest.TestCase):
     def test_subdivide(self):
         qt = QTree(4, 50, 800, 800)
         qt.subdivide()
-        qt.graph()
+        qt.create_graph()
         children = find_children(qt.root)
         self.assertGreaterEqual(len(children), 13, f"Expected at least 1 segment but got {len(children)}.")
 

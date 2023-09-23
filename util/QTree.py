@@ -27,7 +27,7 @@ class QTree:
     def subdivide(self):
         _recursive_subdivide(self.root, self.threshold)
 
-    def graph(self):
+    def create_graph(self):
         # Create a new figure with a specified size
         fig, ax = plt.subplots(figsize=(8, 8))
 
